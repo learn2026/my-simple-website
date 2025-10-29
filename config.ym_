@@ -1,0 +1,10 @@
+# ------------------------------------
+# ملف إعدادات جيكيل (Jekyll Configuration) لـ GitHub Pages
+# ------------------------------------
+# هذا الملف يُستخدم لإضافة رؤوس أمان للموقع (Security Headers)
+
+# إضافة رأس X-Content-Type-Options: nosniff
+# يمنع المتصفح من تخمين نوع MIME للبيانات (حماية ضد هجمات MIME-Sniffing)
+webrick:
+  headers:
+    X-Content-Type-Options: "nosniff"
