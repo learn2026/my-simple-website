@@ -1,0 +1,83 @@
+/*
+======================================
+تنسيقات الوضع العادي (Light Mode) - الأساس الافتراضي
+======================================
+*/
+body {
+    background-color: #f0f0f0; /* لون خلفية فاتح جدا */
+    color: #333333; /* لون نص داكن */
+    font-family: sans-serif;
+    margin: 20px;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* انتقال سلس بين الأوضاع */
+}
+
+h1, h2 {
+    color: #0056b3; /* لون أزرق جذاب للعناوين */
+    transition: color 0.3s;
+}
+
+/* تنسيقات حقول الإدخال الافتراضية (Light Mode) */
+input, textarea {
+    border: 1px solid #cccccc;
+    background-color: white;
+    color: #333333;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/*
+======================================
+تنسيقات الوضع الداكن (Dark Mode)
+يتم تفعيلها يدوياً عبر إضافة كلاس .dark-mode على وسم body
+======================================
+*/
+body.dark-mode {
+    background-color: #1a1a1a; /* خلفية داكنة جدا */
+    color: #eeeeee; /* نص فاتح جدا */
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #8c8cff; /* لون فاتح مناسب للعناوين */
+}
+
+/* تنسيقات حقول الإدخال في الوضع الداكن */
+body.dark-mode input,
+body.dark-mode textarea {
+    border: 1px solid #555555;
+    background-color: #333333;
+    color: #eeeeee;
+}
+
+
+/*
+======================================
+تنسيقات زر العودة للأعلى
+======================================
+*/
+#myBtn {
+  display: none; /* إخفاؤه في البداية */
+  position: fixed; /* تثبيته في مكانه */
+  bottom: 20px; /* بعده عن أسفل الشاشة */
+  right: 30px; /* بعده عن يمين الشاشة */
+  z-index: 99; /* ليكون فوق العناصر الأخرى */
+  border: none;
+  outline: none;
+  background-color: #0056b3; 
+  color: white; 
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 10px; 
+  font-size: 18px;
+  opacity: 0.8; 
+  transition: opacity 0.3s, background-color 0.3s; /* لتأثير انتقال سلس */
+}
+
+#myBtn:hover {
+  background-color: #004494; 
+  opacity: 1; /* لجعل الزر أغمق قليلاً عند تمرير الفأرة */
+}
+
+/* ------------------------------------ */
+/* تعليق إجباري لإعادة نشر GitHub Pages */
+/* ------------------------------------ */
