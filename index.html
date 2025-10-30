@@ -1,125 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع عبقرية جديد - مع تحسين الأداء</title>
-    
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-    
-    <div id="main-content">
-        
-        <h1>Welcome to our new project!</h1>
-        <p>لقد نجحنا في بناء أول صفحة.</p>
-        
-        <h2>Immediate Image Loading</h2>
-        <img src="https://picsum.photos/600/300" alt="صورة عادية">
-        
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        
-        <h2>Lazy Loaded Image (Scroll to see)</h2>
-        <img src="https://picsum.photos/600/400" alt="صورة بالتحميل الكسول" loading="lazy">
-        
-        <br><br>
-        <h2>🌐 شارك الموقع مع أصدقائك!</h2>
-        
-        <div style="margin-bottom: 30px;">
-            
-            <a href="https://twitter.com/intent/tweet?text=لقد أنشأت موقعي العبقري الجديد! تفضلوا بزيارته:&url=https://learn2026.github.io/my-simple-website" 
-               target="_blank" style="padding: 10px; background-color: #1DA1F2; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
-                🐦 شارك على X (تويتر)
-            </a>
-
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://learn2026.github.io/my-simple-website" 
-               target="_blank" style="padding: 10px; background-color: #1877F2; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
-                📘 شارك على فيسبوك
-            </a>
-            
-            <a href="https://api.whatsapp.com/send?text=لقد أنشأت موقعي العبقري الجديد! تفضلوا بزيارته: https://learn2026.github.io/my-simple-website" 
-               target="_blank" style="padding: 10px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px;">
-                🟢 شارك على واتساب
-            </a>
-        </div>
-        <br><br><br>
-        <h2>📧 تواصلي معنا</h2>
-        
-        <form action="mail هنا مكان الايميل " method="POST">
-            
-            <label for="name">الاسم:</label><br>
-            <input type="text" id="name" name="name" required style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"><br>
-            
-            <label for="email">الإيميل:</label><br>
-            <input type="email" id="email" name="_replyto" required style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"><br>
-            
-            <label for="message">الرسالة:</label><br>
-            <textarea id="message" name="message" required rows="5" cols="40" style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"></textarea><br>
-            
-            <button type="submit" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">إرسال الرسالة</button>
-            
-        </form>
-        
-        <button onclick="topFunction()" id="myBtn" title="العودة للأعلى">⬆️</button>
-    </div>
-    
-    <div id="404-content" style="display: none;">
-        <style>
-            /* تنسيقات خاصة لصفحة 404 يجب أن تكون هنا */
-            body {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                margin: 0;
-                padding: 20px;
-            }
-            .container {
-                max-width: 600px;
-            }
-            h1.error-code { /* تم تعديل h1 ليصبح h1.error-code لتجنب التعارض */
-                font-size: 80px;
-                color: #cc0000;
-                margin-bottom: 0;
-            }
-            h2.error-message { /* تم تعديل h2 ليصبح h2.error-message لتجنب التعارض */
-                font-size: 30px;
-                margin-top: 10px;
-                color: #333;
-            }
-            .home-button {
-                display: inline-block;
-                margin-top: 30px;
-                padding: 12px 25px;
-                background-color: #007bff;
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-                font-size: 18px;
-                transition: background-color 0.3s;
-            }
-            .home-button:hover {
-                background-color: #0056b3;
-            }
-        </style>
-        
-        <div class="container">
-            <h1 class="error-code">404</h1>
-            <h2 class="error-message">يا ليت التعثر! الصفحة غير موجودة.</h2>
-            <p>لقد بحثنا في كل مكان، لكننا لم نعثر على ما طلبته.</p>
-            <p>قد يكون الرابط غير صحيح أو تمت إزالته.</p>
-            
-            <a href="./index.html" class="home-button">
-                🚀 العودة للصفحة الرئيسية
-            </a>
-        </div>
-        
-    </div>
-    
-    <script src="script.js"></script>
-
-    </body>
-</html>
