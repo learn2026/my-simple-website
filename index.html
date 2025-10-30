@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع عبقرية جديد - مع تحسين الأداء</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body onload="checkLanguage()">
+    
+    <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <select id="language-select" onchange="toggleLanguage(this.value)" 
+                style="padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            <option value="ar">العربية (ar)</option>
+            <option value="en">English (en)</option>
+            <option value="es">Español (es)</option>
+        </select>
+    </div>
+    
+    <div id="main-content">
+        
+        <h1>
+            <span class="lang-ar">أهلاً بكِ في مشروعنا الجديد!</span>
+            <span class="lang-en" style="display:none;">Welcome to our New Project!</span>
+            <span class="lang-es" style="display:none;">¡Bienvenido a nuestro nuevo proyecto!</span>
+        </h1>
+        <p>
+            <span class="lang-ar">لقد نجحنا في بناء أول صفحة.</span>
+            <span class="lang-en" style="display:none;">We have successfully built our first page.</span>
+            <span class="lang-es" style="display:none;">Hemos construido con éxito nuestra primera página.</span>
+        </p>
+        
+        <h2>
+            <span class="lang-ar">صورة يتم تحميلها فوراً</span>
+            <span class="lang-en" style="display:none;">Immediate Image Loading</span>
+            <span class="lang-es" style="display:none;">Carga inmediata de imagen</span>
+        </h2>
+        <img src="https://picsum.photos/600/300" alt="صورة عادية">
+        
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        
+        <h2>
+            <span class="lang-ar">صورة بالتحميل الكسول (تظهر عند التمرير)</span>
+            <span class="lang-en" style="display:none;">Lazy Loaded Image (Scroll to see)</span>
+            <span class="lang-es" style="display:none;">Carga diferida de imagen (desplácese para ver)</span>
+        </h2>
+        <img src="https://picsum.photos/600/400" alt="صورة بالتحميل الكسول" loading="lazy">
+        
+        <br><br>
+        <h2>
+            <span class="lang-ar">🌐 شارك الموقع مع أصدقائك!</span>
+            <span class="lang-en" style="display:none;">🌐 Share the Website with your Friends!</span>
+            <span class="lang-es" style="display:none;">🌐 ¡Comparte el sitio web con tus amigos!</span>
+        </h2>
+        
+        <div style="margin-bottom: 30px;">
+            
+            <a href="https://twitter.com/intent/tweet?text=لقد أنشأت موقعي العبقري الجديد! تفضلوا بزيارته:&url=https://learn2026.github.io/my-simple-website" 
+               target="_blank" style="padding: 10px; background-color: #1DA1F2; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+                🐦 <span class="lang-ar">شارك على X (تويتر)</span><span class="lang-en" style="display:none;">Share on X (Twitter)</span><span class="lang-es" style="display:none;">Compartir en X (Twitter)</span>
+            </a>
+
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://learn2026.github.io/my-simple-website" 
+               target="_blank" style="padding: 10px; background-color: #1877F2; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+                📘 <span class="lang-ar">شارك على فيسبوك</span><span class="lang-en" style="display:none;">Share on Facebook</span><span class="lang-es" style="display:none;">Compartir en Facebook</span>
+            </a>
+            
+            <a href="https://api.whatsapp.com/send?text=لقد أنشأت موقعي العبقري الجديد! تفضلوا بزيارته: https://learn2026.github.io/my-simple-website" 
+               target="_blank" style="padding: 10px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px;">
+                🟢 <span class="lang-ar">شارك على واتساب</span><span class="lang-en" style="display:none;">Share on WhatsApp</span><span class="lang-es" style="display:none;">Compartir en WhatsApp</span>
+            </a>
+        </div>
+        <br><br><br>
+        <h2>
+            <span class="lang-ar">📧 تواصلي معنا</span>
+            <span class="lang-en" style="display:none;">📧 Contact Us</span>
+            <span class="lang-es" style="display:none;">📧 Contáctanos</span>
+        </h2>
+        
+        <form action="mail هنا مكان الايميل " method="POST">
+            
+            <label for="name"><span class="lang-ar">الاسم:</span><span class="lang-en" style="display:none;">Name:</span><span class="lang-es" style="display:none;">Nombre:</span></label><br>
+            <input type="text" id="name" name="name" required style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"><br>
+            
+            <label for="email"><span class="lang-ar">الإيميل:</span><span class="lang-en" style="display:none;">Email:</span><span class="lang-es" style="display:none;">Correo Electrónico:</span></label><br>
+            <input type="email" id="email" name="_replyto" required style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"><br>
+            
+            <label for="message"><span class="lang-ar">الرسالة:</span><span class="lang-en" style="display:none;">Message:</span><span class="lang-es" style="display:none;">Mensaje:</span></label><br>
+            <textarea id="message" name="message" required rows="5" cols="40" style="padding: 10px; margin-bottom: 15px; width: 300px; display: block;"></textarea><br>
+            
+            <button type="submit" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+                <span class="lang-ar">إرسال الرسالة</span>
+                <span class="lang-en" style="display:none;">Send Message</span>
+                <span class="lang-es" style="display:none;">Enviar Mensaje</span>
+            </button>
+            
+        </form>
+        
+        <button onclick="topFunction()" id="myBtn" title="العودة للأعلى">⬆️</button>
+    </div>
+    
+    <div id="404-content" style="display: none;">
+        <style>
+            /* تنسيقات خاصة لصفحة 404 يجب أن تكون هنا */
+            body {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                max-width: 600px;
+            }
+            h1.error-code { 
+                font-size: 80px;
+                color: #cc0000;
+                margin-bottom: 0;
+            }
+            h2.error-message { 
+                font-size: 30px;
+                margin-top: 10px;
+                color: #333;
+            }
+            .home-button {
+                display: inline-block;
+                margin-top: 30px;
+                padding: 12px 25px;
+                background-color: #007bff;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 18px;
+                transition: background-color 0.3s;
+            }
+            .home-button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+        
+        <div class="container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-message">يا ليت التعثر! الصفحة غير موجودة.</h2>
+            <p>لقد بحثنا في كل مكان، لكننا لم نعثر على ما طلبته.</p>
+            <p>قد يكون الرابط غير صحيح أو تمت إزالته.</p>
+            
+            <a href="./index.html" class="home-button">
+                🚀 العودة للصفحة الرئيسية
+            </a>
+        </div>
+        
+    </div>
+    
+    <script src="script.js"></script>
+
+    </body>
+</html>
