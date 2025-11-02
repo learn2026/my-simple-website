@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>خدمة إنشاء صفحة جديدة</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 20px; background-color: #fff; }
+        textarea { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #007bff; border-radius: 4px; }
+        button { padding: 12px 20px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 15px; font-size: 1.1em; }
+        button:hover { background-color: #117a8b; }
+    </style>
+</head>
+<body>
+    <h1>اكتب ردك لعرضه في نافذة جديدة</h1>
+    <p>هذه الصفحة نظيفة، وكل منشور سيظهر في صفحة مستقلة.</p>
+    
+    <textarea id="userInput" rows="10" cols="60" placeholder="اكتب محتوى الرد هنا..."></textarea>
+    <br>
+    <button onclick="publishToNewWindow()">نشر في نافذة جديدة (صفحة الرد)</button>
+
+    <script>
+        function publishToNewWindow() {
+            const inputText = document.getElementById('userInput').value.trim();
+
+            if (inputText === "") {
+                alert("الرجاء كتابة محتوى للرد.");
+                return;
+            }
+            
+            // معالجة فواصل الأسطر لتظهر بشكل صحيح في HTML المنشور
+            const htmlFormattedContent = inputText.replace(/\n/g, '<br>');
+
+            // تجميع المحتوى في هيكل HTML كامل للنافذة الجديدة
+            const htmlContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>الرد المنشور المستقل</title>
+                    <style>
+                        body { font-family: 'Tahoma', sans-serif; margin: 30px; background-color: #e9f5ff; }
+                        h2 { color: #007bff; }
+                        .response { border: 2px solid #007bff; padding: 25px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+                    </style>
+                </head>
+                <body>
+                    <h2>إجابتك المنشورة (صفحة مستقلة):</h2>
+                    <div class="response">
+                        ${htmlFormattedContent}
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // فتح نافذة جديدة وكتابة المحتوى فيها مباشرة
+            const newWindow = window.open();
+            newWindow.document.write(htmlContent);
+            newWindow.document.close();
+            
+            // مسح مربع الإدخال بعد النشر
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+</body>
+</html>
