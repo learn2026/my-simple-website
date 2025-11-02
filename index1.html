@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>خدمة الرد الفوري</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .input-area { margin-bottom: 30px; padding: 20px; border: 1px solid #ccc; background-color: white; border-radius: 8px; }
+        .display-area { border-top: 2px dashed #333; padding-top: 20px; }
+        textarea { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #0056b3; }
+        .post { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; background-color: #fff; border-radius: 6px; }
+        .feedback button { background-color: #28a745; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="input-area">
+        <h1>الردود والتفاعل المباشر</h1>
+        <textarea id="userInput" placeholder="اكتب ردك هنا..." rows="8"></textarea>
+        <button onclick="publishContent()">نشر الرد</button>
+    </div>
+
+    <hr>
+
+    <h2>الردود المنشورة:</h2>
+    <div id="contentDisplay" class="display-area">
+        <p style="color: #666;">سيظهر المحتوى الذي تكتبه هنا.</p>
+    </div>
+
+    <script>
+        // العدادات تحفظ مؤقتاً في ذاكرة المتصفح
+        let postCounter = 0; 
+
+        function publishContent() {
+            const inputText = document.getElementById('userInput').value.trim();
+            
+            if (inputText === "") {
+                alert("الرجاء كتابة محتوى للرد قبل النشر.");
+                return;
+            }
+
+            postCounter++;
+            const postId = postCounter; // تعريف معرف فريد لكل منشور
+
+            const displayArea = document.getElementById('contentDisplay');
+
+            // معالجة فواصل الأسطر
+            const formattedContent = inputText.replace(/\n/g, '<br>');
+
+            // إنشاء عنصر المنشور الجديد
+            const newPost = document.createElement('div');
+            newPost.classList.add('post');
+            newPost.innerHTML = `
+                <p><strong>الرد #${postId}:</strong></p>
+                <p>${formattedContent}</p>
+                <div class="feedback">
+                    <p>هل كان هذا مفيداً؟</p>
+                    <button onclick="recordVote(${postId}, 'like')">👍 أعجبني (<span id="like-${postId}">0</span>)</button>
+                    <button onclick="recordVote(${postId}, 'dislike')">👎 لم يعجبني (<span id="dislike-${postId}">0</span>)</button>
+                </div>
+            `;
+            
+            // إضافة المحتوى الجديد إلى أعلى منطقة العرض
+            displayArea.prepend(newPost);
+            
+            // مسح مربع الإدخال
+            document.getElementById('userInput').value = '';
+        }
+
+        // دالة التصويت
+        function recordVote(postId, type) {
+            const elementId = `${type}-${postId}`;
+            const counterElement = document.getElementById(elementId);
+            
+            if (counterElement) {
+                let count = parseInt(counterElement.textContent) || 0;
+                count++;
+                counterElement.textContent = count;
+                
+                // تعطيل الأزرار بعد التصويت
+                const feedbackDiv = counterElement.closest('.feedback');
+                feedbackDiv.querySelectorAll('button').forEach(btn => btn.disabled = true);
+            }
+        }
+    </script>
+</body>
+</html>
