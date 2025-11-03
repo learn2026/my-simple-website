@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>حقل تجارب Markdown التفاعلي</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="style1.css"> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <h1>حقل تجارب Markdown التفاعلي 📝</h1>
+    <p>اكتب هنا لتجربة تنسيقات المنتديات (مثل: ## عنوان, **نص غامق**). سيتم حفظ النص في جهازك وعرض التنسيق فورياً.</p>
+    
+    <div class="editor-container">
+        <textarea id="userInput" 
+                  rows="15" 
+                  cols="60" 
+                  placeholder="ابدأ بكتابة نص Markdown هنا..."
+                  oninput="renderAndSaveMarkdown()">
+        </textarea>
+        
+        <div id="markdownPreview" class="preview-area">
+            <h2>النتيجة المنسقة ستظهر هنا:</h2>
+        </div>
+    </div>
+    
+    <br>
+    
+    <button class="index2-button" onclick="copyMarkdownResult()">نسخ النتيجة المنسقة</button> 
+    
+    <button onclick="clearLocalReply()" style="background-color: #dc3545;">مسح التجربة المحفوظة</button>
+
+    <script src="script4.js"></script>
+</body>
+</html>
