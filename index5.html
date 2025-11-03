@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>مُحلّل النصوص الفوري</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="style1.css"> 
+</head>
+<body>
+    <h1>مُحلّل النصوص الفوري 📊</h1>
+    <p>اكتب أو الصق النص هنا لمشاهدة إحصائيات فورية حول الحروف والكلمات.</p>
+    
+    <div class="stats-panel">
+        <div>الكلمات: <span id="wordCount">0</span></div>
+        <div>الحروف (بما في ذلك المسافات): <span id="charCount">0</span></div>
+        <div>الحروف (بدون مسافات): <span id="charNoSpaces">0</span></div>
+        <div>الأسطر: <span id="lineCount">0</span></div>
+    </div>
+    
+    <textarea id="textInput" 
+              rows="15" 
+              cols="80" 
+              placeholder="ابدأ الكتابة هنا..."
+              oninput="analyzeText()">
+    </textarea>
+    
+    <br>
+    
+    <button onclick="clearText()">مسح النص بالكامل</button>
+
+    <script src="script5.js"></script>
+</body>
+</html>
