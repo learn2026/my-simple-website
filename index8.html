@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>محرر أكواد مباشر</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    textarea, pre {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 14px;
+    }
+    #code {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      box-sizing: border-box;
+      resize: vertical;
+      display: none; /* سيُخفى عند تفعيل التلوين */
+    }
+    #highlighted {
+      width: 100%;
+      min-height: 200px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      background: #fff;
+      white-space: pre;
+      overflow: auto;
+      display: none; /* يبدأ مخفيًا */
+      direction: ltr;
+      text-align: left;
+    }
+    #preview {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background: white;
+      min-height: 150px;
+    }
+    .buttons {
+      margin-top: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      margin-left: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #runBtn { background: #4CAF50; color: white; }
+    #runBtn:hover { background: #45a049; }
+    #clearBtn { background: #f44336; color: white; }
+    #clearBtn:hover { background: #d32f2f; }
+    #resetBtn { background: #2196F3; color: white; }
+    #resetBtn:hover { background: #0b7dda; }
+    #shareBtn { background: #9C27B0; color: white; }
+    #shareBtn:hover { background: #7B1FA2; }
+    #toggleHighlight { background: #FF9800; color: white; }
+    #toggleHighlight:hover { background: #F57C00; }
+
+    /* ألوان التلوين */
+    .tag { color: #e25463; }
+    .attr { color: #8959a8; }
+    .value { color: #3e999f; }
+    .comment { color: #888; }
+    .js { color: #4a7; }
+    .string { color: #a53; }
+  </style>
+</head>
+<body>
+  <h2>محرر أكواد مباشر مع تلوين ومشاركة</h2>
+  
+  <textarea id="code" placeholder="اكتب كودك هنا..."></textarea>
+  <pre id="highlighted" contenteditable="true"></pre>
+
+  <div class="buttons">
+    <button id="runBtn" onclick="runCode()">جرب الكود</button>
+    <button id="clearBtn" onclick="clearCode()">مسح</button>
+    <button id="resetBtn" onclick="resetCode()">استعادة الافتراضي</button>
+    <button id="shareBtn" onclick="shareCode()">مشاركة عبر رابط</button>
+    <button id="toggleHighlight" onclick="toggleHighlight()">تفعيل التلوين</button>
+  </div>
+
+  <div id="preview"></div>
+
+  <script>
+    const codeInput = document.getElementById("code");
+    const highlightedEl = document.getElementById("highlighted");
+    const STORAGE_KEY = "savedCode";
+    let highlightingEnabled = false;
+
+    const DEFAULT_CODE = `<h1 style="color: blue;">مرحباً بك في المحرر الذكي!</h1>
+<p>جرب كتابة HTML، CSS، أو JavaScript.</p>
+<script>
+  document.body.style.backgroundColor = "#f0f8ff";
+<\\/script>`;
+
+    // ============= التحميل الأولي =============
+    function loadInitialCode() {
+      // أولاً: تحقق من الرابط (للمشاركة)
+      const urlParams = new URLSearchParams(window.location.search);
+      const sharedCode = urlParams.get('code');
+      if (sharedCode) {
+        try {
+          codeInput.value = decodeURIComponent(sharedCode);
+          localStorage.setItem(STORAGE_KEY, codeInput.value);
+        } catch (e) {
+          codeInput.value = DEFAULT_CODE;
+        }
+      } else {
+        // ثانيًا: تحقق من الذاكرة المحلية
+        const saved = localStorage.getItem(STORAGE_KEY);
+        codeInput.value = saved !== null ? saved : DEFAULT_CODE;
+      }
+
+      if (highlightingEnabled) {
+        renderHighlight();
+      }
+    }
+
+    // ============= الحفظ التلقائي =============
+    codeInput.addEventListener("input", () => {
+      localStorage.setItem(STORAGE_KEY, codeInput.value);
+      if (highlightingEnabled) renderHighlight();
+    });
+
+    highlightedEl.addEventListener("input", () => {
+      // استخراج النص الخالي من علامات التلوين
+      const text = highlightedEl.innerText;
+      codeInput.value = text;
+      localStorage.setItem(STORAGE_KEY, text);
+    });
+
+    // ============= تشغيل المعاينة =============
+    function runCode() {
+      const code = codeInput.value;
+      const preview = document.getElementById("preview");
+      const iframe = document.createElement('iframe');
+      iframe.style.width = '100%';
+      iframe.style.height = '300px';
+      iframe.style.border = '1px solid #ddd';
+      preview.innerHTML = '';
+      preview.appendChild(iframe);
+
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      doc.open();
+      doc.write(code);
+      doc.close();
+    }
+
+    // ============= مسح الكود =============
+    function clearCode() {
+      if (confirm("هل أنت متأكد من مسح الكود؟")) {
+        codeInput.value = "";
+        localStorage.removeItem(STORAGE_KEY);
+        if (highlightingEnabled) highlightedEl.innerText = "";
+        document.getElementById("preview").innerHTML = "";
+      }
+    }
+
+    // ============= استعادة الكود الافتراضي =============
+    function resetCode() {
+      if (confirm("هل تريد استعادة الكود الافتراضي؟")) {
+        codeInput.value = DEFAULT_CODE;
+        localStorage.setItem(STORAGE_KEY, DEFAULT_CODE);
+        if (highlightingEnabled) renderHighlight();
+        runCode();
+      }
+    }
+
+    // ============= مشاركة عبر رابط =============
+    function shareCode() {
+      const code = codeInput.value;
+      if (code.trim() === "") {
+        alert("لا يوجد كود للمشاركة!");
+        return;
+      }
+      try {
+        const encoded = encodeURIComponent(code);
+        if (encoded.length > 1900) {
+          alert("الكود طويل جدًا! لا يمكن مشاركته عبر الرابط (الحد ~1900 حرف).");
+          return;
+        }
+        const url = window.location.origin + window.location.pathname + '?code=' + encoded;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(() => {
+            alert("تم نسخ الرابط إلى الحافظة!\nشاركه مع أي شخص.");
+          });
+        } else {
+          prompt("انسخ الرابط يدويًا:", url);
+        }
+      } catch (e) {
+        alert("حدث خطأ أثناء إنشاء الرابط.");
+      }
+    }
+
+    // ============= تفعيل/إيقاف التلوين =============
+    function toggleHighlight() {
+      highlightingEnabled = !highlightingEnabled;
+      codeInput.style.display = highlightingEnabled ? 'none' : 'block';
+      highlightedEl.style.display = highlightingEnabled ? 'block' : 'none';
+      const btn = document.getElementById("toggleHighlight");
+      btn.textContent = highlightingEnabled ? "إيقاف التلوين" : "تفعيل التلوين";
+
+      if (highlightingEnabled) {
+        renderHighlight();
+      }
+    }
+
+    // ============= تلوين بسيط (أساسي) =============
+    function renderHighlight() {
+      let code = codeInput.value;
+      // تجنب مشاكل HTML داخل السكريبت
+      code = code.replace(/</g, '<').replace(/>/g, '>');
+
+      // تمييز التعليقات
+      code = code.replace(/(<!--.*?-->)/g, '<span class="comment">$1</span>');
+
+      // تمييز العلامات <...>
+      code = code.replace(/(<\/?[a-z][^&]*?>)/gi, match => {
+        let result = match;
+        // العلامات
+        result = result.replace(/(<\/?)([a-z]+)/gi, (_, start, tag) =>
+          `<span class="tag">${start}${tag}</span>`
+        );
+        // السمات
+        result = result.replace(/([a-z-]+)=/g, '<span class="attr">$1</span>=');
+        // القيم
+        result = result.replace(/="([^"]*)"/g, '="<span class="value">$1</span>"');
+        result = result.replace(/='([^']*)'/g, "='<span class=\"value\">$1</span>'");
+        return result;
+      });
+
+      // تمييز جافاسكريبت (بسيط)
+      code = code.replace(/(<script>)(.*?)(<\/script>)/gs, (_, start, content, end) => {
+        // تلوين محتوى السكريبت بشكل بسيط
+        let js = content
+          .replace(/(".*?")/g, '<span class="string">$1</span>')
+          .replace(/('.*?')/g, "<span class=\"string\">$1</span>")
+          .replace(/\b(document|window|alert|console|function|const|let|var)\b/g, '<span class="js">$&</span>');
+        return `<span class="tag">${start}</span>${js}<span class="tag">${end}</span>`;
+      });
+
+      highlightedEl.innerHTML = code;
+    }
+
+    // ============= التشغيل عند التحميل =============
+    loadInitialCode();
+    runCode();
+  </script>
+</body>
+</html>
