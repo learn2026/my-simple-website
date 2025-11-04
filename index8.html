@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تجربة بسيطة</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      font-family: monospace;
+      font-size: 15px;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 2px solid #4CAF50;
+      border-radius: 6px;
+      resize: vertical;
+    }
+    #preview {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background: white;
+      min-height: 150px;
+      border-radius: 6px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 5px 5px 15px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .run { background: #4CAF50; color: white; }
+    .clear { background: #f44336; color: white; }
+  </style>
+</head>
+<body>
+  <h2>جرب كودك هنا</h2>
+  
+  <textarea id="code">
+<h2 style="color: teal;">مرحباً! هذا كود تجريبي.</h2>
+<p>غيّر هذا النص أو أضف أزرارًا، صورًا، ألوانًا...</p>
+<button onclick="alert('زر يعمل!')">جربني</button>
+  </textarea>
+
+  <button class="btn run" onclick="runCode()">جرب الكود</button>
+  <button class="btn clear" onclick="clearCode()">مسح</button>
+
+  <div id="preview"></div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("code").value;
+      const preview = document.getElementById("preview");
+      
+      const iframe = document.createElement('iframe');
+      iframe.style.width = '100%';
+      iframe.style.height = '450px';        // ← تم التغيير إلى 450 بكسل
+      iframe.style.border = '1px solid #ddd';
+      iframe.style.borderRadius = '6px';
+      iframe.style.overflow = 'auto';       // ← يسمح بالتمرير داخل الإطار
+      preview.innerHTML = '';
+      preview.appendChild(iframe);
+
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      doc.open();
+      doc.write(code);
+      doc.close();
+    }
+
+    function clearCode() {
+      if (confirm("مسح كل الكود؟")) {
+        document.getElementById("code").value = "";
+        document.getElementById("preview").innerHTML = "";
+      }
+    }
+
+    runCode();
+  </script>
+</body>
+    </html>
