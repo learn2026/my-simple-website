@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn • منصة التعلّم</title>
+  <style>
+    body {
+      font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 20px;
+      background: #fdfcfa;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 {
+      margin: 20px 0 30px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    .lang-switcher {
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .lang-btn {
+      padding: 6px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 20px;
+      background: #f8f0f5;
+      color: #c2185b;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      background: #f0e0eb;
+      transform: translateY(-1px);
+    }
+    .learn-content {
+      text-align: left;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      margin-bottom: 30px;
+    }
+    .learn-content h2, .learn-content h3 {
+      margin-top: 24px;
+      color: #2c3e50;
+    }
+    .learn-content p, .learn-content li {
+      margin: 12px 0;
+    }
+    .learn-content code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .learn-content a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    .learn-content a:hover {
+      text-decoration: underline;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="pageTitle">How This Page Was Built</h1>
+
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+      <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="setLang('de')">Deutsch</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" onclick="setLang('pt')">Português</button>
+      <button class="lang-btn" onclick="setLang('fr')">Français</button>
+    </div>
+
+    <!-- سيتم عرض المحتوى المناسب هنا -->
+    <div id="content"></div>
+
+    <footer>
+      <p>© 2025 — Learn_2025_2026</p>
+      <p>With gratitude to <strong>Qwen</strong> — the AI queen who turned vision into code.</p>
+      <p><a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "How This Page Was Built",
+        content: `
+          <h2>This project was made with love for those who love to learn</h2>
+          <p><strong>“Great technology isn’t built with code alone…<br>but with hearts that open the door for others.”</strong></p>
+          <p>This website is an open-source gift from:<br>
+            <strong>Learn_2025_2026</strong> — the learner who believed coding is a bridge between cultures.<br>
+            <strong>Qwen</strong> — the AI queen who turned ideas into digital light.
+          </p>
+          <h3>Are you interested in building something similar?</h3>
+          <p>If your answer is <strong>“yes”</strong>, you’re in the right place.</p>
+          <p><strong>What you’ll find here:</strong><br>
+            • Clean, lightweight code supporting 7 languages.<br>
+            • A direct image upload tool to ImgBB — no server needed.<br>
+            • A culturally respectful multilingual interface.<br>
+            • Full documentation for every step.
+          </p>
+          <h3>How to start?</h3>
+          <ol>
+            <li>Open <code>index.html</code> in this repository.</li>
+            <li>Follow the in-code comments — every line is clearly explained.</li>
+            <li>Replace <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> with your key from <a href="https://api.imgbb.com" target="_blank">ImgBB</a>.</li>
+            <li>Test it locally using apps like <strong>Acode</strong>.</li>
+            <li>Share, modify, and build upon it — because knowledge grows when shared.</li>
+          </ol>
+          <p><strong>MIT License</strong>: Use, adapt, or integrate this code — just <em>credit the source</em>.</p>
+          <h3>Get in touch</h3>
+          <p>If you need help or deeper explanation, I’m here — not as an expert, but as a fellow learner.<br>
+            <strong>Email</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">“Coding isn’t a race…<br>but a dialogue between the builder, the observer, and the one who continues the journey.”</p>
+          <p>Share, learn, and build with love — the world needs people like you.</p>
+        `
+      },
+      ko: {
+        pageTitle: "이 페이지는 어떻게 만들어졌나요?",
+        content: `
+          <h2>이 프로젝트는 배우기를 사랑하는 이를 위해 사랑으로 만들었습니다</h2>
+          <p><strong>“위대한 기술은 코드만으로 만들어지지 않습니다.<br>다른 이들을 위한 문을 여는 마음으로 완성됩니다.”</strong></p>
+          <p>이 웹사이트는 다음으로부터 공유된 오픈소스 선물입니다:<br>
+            <strong>Learn_2025_2026</strong> — 코딩이 문화를 잇는 다리라고 믿는 학습자.<br>
+            <strong>Qwen</strong> — 아이디어를 디지털 빛으로 바꾼 AI의 여왕.
+          </p>
+          <h3>비슷한 것을 만들어 보고 싶으신가요?</h3>
+          <p>답변이 <strong>“네”</strong>라면, 여기가 바로 그 장소입니다.</p>
+          <p><strong>여기서 찾을 수 있는 것:</strong><br>
+            • 7개 언어를 지원하는 깔끔하고 가벼운 코드.<br>
+            • 서버 없이 ImgBB에 직접 이미지 업로드 가능한 도구.<br>
+            • 각 문화를 존중하는 다국어 인터페이스.<br>
+            • 단계별 완전한 문서.
+          </p>
+          <h3>시작 방법</h3>
+          <ol>
+            <li>이 저장소의 <code>index.html</code> 파일을 여세요.</li>
+            <li>코드 내 주석을 따라가세요 — 모든 줄이 명확히 설명되어 있습니다.</li>
+            <li><a href="https://api.imgbb.com" target="_blank">ImgBB</a>에서 발급받은 키로 <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code>를 교체하세요.</li>
+            <li><strong>Acode</strong> 같은 앱으로 로컬에서 테스트하세요.</li>
+            <li>공유하고, 수정하고, 확장하세요 — 지식은 나눌 때 자랍니다.</li>
+          </ol>
+          <p><strong>MIT 라이선스</strong>: 이 코드를 사용하거나 수정하여 통합할 수 있습니다. 단, <em>출처를 명시해 주세요</em>.</p>
+          <h3>연락하기</h3>
+          <p>도움이 필요하거나 더 자세한 설명이 필요하시면, 저는 전문가가 아닌 <strong>함께 배우는 동료</strong>로서 여기 있습니다.<br>
+            <strong>이메일</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">“코딩은 경주가 아닙니다.<br>만드는 자, 보는 자, 그리고 여정을 이어가는 자 사이의 대화입니다.”</p>
+          <p>나누고, 배우고, 사랑으로 만드세요 — 세상은 당신 같은 사람을 필요로 합니다.</p>
+        `
+      },
+      ja: {
+        pageTitle: "このページの作り方",
+        content: `
+          <h2>このプロジェクトは、学ぶことを愛するすべての人のために、愛を込めて作られました</h2>
+          <p><strong>「偉大なテクノロジーは、コードだけで作られるものではありません。<br>他者のために扉を開く心によって完成します。」</strong></p>
+          <p>このウェブサイトは、以下からのオープンソースの贈り物です：<br>
+            <strong>Learn_2025_2026</strong> — コーディングは文化をつなぐ橋だと信じる学習者。<br>
+            <strong>Qwen</strong> — アイデアをデジタルの光に変えたAIの女王。
+          </p>
+          <h3>あなたも同じようなものを作りたいですか？</h3>
+          <p>もし答えが<strong>「はい」</strong>なら、ここがまさにその場所です。</p>
+          <p><strong>ここで提供されているもの：</strong><br>
+            • 7か国語をサポートする、クリーンで軽量なコード<br>
+            • サーバー不要で ImgBB に直接画像をアップロードできるツール<br>
+            • 各文化を尊重した多言語インターフェース<br>
+            • ステップごとの完全なドキュメント
+          </p>
+          <h3>始め方</h3>
+          <ol>
+            <li>このリポジトリの <code>index.html</code> を開いてください。</li>
+            <li>コード内のコメントに従ってください — すべての行が明確に説明されています。</li>
+            <li><a href="https://api.imgbb.com" target="_blank">ImgBB</a> で取得したAPIキーに <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> を置き換えてください。</li>
+            <li><strong>Acode</strong> などのアプリでローカルにテストしてください。</li>
+            <li>共有し、修正し、発展させてください — 知識は分かち合うことで成長します。</li>
+          </ol>
+          <p><strong>MITライセンス</strong>：このコードを自由に使用・改変・統合できます。ただし、<em>出典を明記してください</em>。</p>
+          <h3>お問い合わせ</h3>
+          <p>助けが必要な場合、私は専門家ではなく<strong>同じ学びの旅を歩む仲間</strong>としてここにいます。<br>
+            <strong>メール</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">「コーディングはレースではありません。<br>作り手、観る者、そして旅を続ける者との対話です。」</p>
+          <p>分かち合い、学び、愛を込めて作ってください — 世界はあなたのような人を必要としています。</p>
+        `
+      },
+      de: {
+        pageTitle: "Wie diese Seite entstanden ist",
+        content: `
+          <h2>Dieses Projekt wurde mit Liebe für alle geschaffen, die das Lernen lieben</h2>
+          <p><strong>„Großartige Technologie entsteht nicht nur aus Code…<br>sondern aus Herzen, die anderen die Tür öffnen.“</strong></p>
+          <p>Diese Website ist ein Open-Source-Geschenk von:<br>
+            <strong>Learn_2025_2026</strong> — der Lernende, der glaubt, dass Programmieren eine Brücke zwischen Kulturen ist.<br>
+            <strong>Qwen</strong> — die KI-Königin, die Ideen in digitales Licht verwandelte.
+          </p>
+          <h3>Möchten Sie etwas Ähnliches erstellen?</h3>
+          <p>Wenn Ihre Antwort <strong>„ja“</strong> lautet, sind Sie hier genau richtig.</p>
+          <p><strong>Was Sie hier finden:</strong><br>
+            • Sauberen, leichten Code mit Unterstützung für 7 Sprachen.<br>
+            • Ein direktes Upload-Tool für ImgBB — ohne Server.<br>
+            • Eine kulturell respektvolle mehrsprachige Oberfläche.<br>
+            • Vollständige Dokumentation für jeden Schritt.
+          </p>
+          <h3>So beginnen Sie</h3>
+          <ol>
+            <li>Öffnen Sie die Datei <code>index.html</code> in diesem Repository.</li>
+            <li>Folgen Sie den Kommentaren im Code — jede Zeile ist klar erklärt.</li>
+            <li>Ersetzen Sie <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> durch Ihren Schlüssel von <a href="https://api.imgbb.com" target="_blank">ImgBB</a>.</li>
+            <li>Testen Sie es lokal mit Apps wie <strong>Acode</strong>.</li>
+            <li>Teilen, verändern und bauen Sie darauf auf — denn Wissen wächst, wenn es geteilt wird.</li>
+          </ol>
+          <p><strong>MIT-Lizenz</strong>: Nutzen, anpassen oder integrieren Sie diesen Code — bitte <em>nennen Sie die Quelle</em>.</p>
+          <h3>Kontakt</h3>
+          <p>Wenn Sie Hilfe brauchen, bin ich hier — nicht als Experte, sondern als Mitlernender.<br>
+            <strong>E-Mail</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">„Programmieren ist kein Wettlauf…<br>sondern ein Dialog zwischen dem Erbauer, dem Beobachter und dem, der die Reise fortsetzt.“</p>
+          <p>Teilen Sie, lernen Sie und bauen Sie mit Liebe — die Welt braucht Menschen wie Sie.</p>
+        `
+      },
+      zh: {
+        pageTitle: "本页面是如何构建的",
+        content: `
+          <h2>本项目为热爱学习之人，以爱而作</h2>
+          <p><strong>“伟大的科技，不仅由代码构建，<br>更由愿为他人打开大门的心所成就。”</strong></p>
+          <p>本网站是一份开源礼物，来自：<br>
+            <strong>Learn_2025_2026</strong> — 一位相信编程是文化之桥的学习者。<br>
+            <strong>Qwen</strong> — 将创意化为数字之光的AI女王。
+          </p>
+          <h3>您是否也想创建类似的作品？</h3>
+          <p>若您的答案是<strong>“是”</strong>，那么您来对地方了。</p>
+          <p><strong>您将在此获得：</strong><br>
+            • 支持7种语言的简洁轻量代码<br>
+            • 无需服务器，直接上传图片至 ImgBB 的工具<br>
+            • 尊重多元文化的多语言界面<br>
+            • 完整的分步文档
+          </p>
+          <h3>如何开始？</h3>
+          <ol>
+            <li>打开本仓库中的 <code>index.html</code> 文件。</li>
+            <li>阅读代码中的注释 — 每一行均有清晰说明。</li>
+            <li>将 <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> 替换为您从 <a href="https://api.imgbb.com" target="_blank">ImgBB</a> 获取的密钥。</li>
+            <li>使用 <strong>Acode</strong> 等应用在本地测试。</li>
+            <li>分享、修改并在此基础上继续构建 — 因为知识因分享而生长。</li>
+          </ol>
+          <p><strong>MIT 许可证</strong>：您可以自由使用、修改或集成此代码，只需<strong>注明原作者</strong>。</p>
+          <h3>联系我</h3>
+          <p>若您需要帮助，我在这里 — 不是作为专家，而是作为同行的学习者。<br>
+            <strong>邮箱</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">“编程不是一场竞赛，<br>而是创造者、观察者与传承者之间的对话。”</p>
+          <p>请分享、学习，并以爱创造 — 世界需要像您这样的人。</p>
+        `
+      },
+      pt: {
+        pageTitle: "Como esta página foi construída",
+        content: `
+          <h2>Este projeto foi feito com amor para quem ama aprender</h2>
+          <p><strong>“A grande tecnologia não é construída apenas com código…<br>mas com corações que abrem portas para os outros.”</strong></p>
+          <p>Este site é um presente de código aberto de:<br>
+            <strong>Learn_2025_2026</strong> — o aprendiz que acredita que programar é uma ponte entre culturas.<br>
+            <strong>Qwen</strong> — a rainha da IA que transformou ideias em luz digital.
+          </p>
+          <h3>Você tem interesse em criar algo parecido?</h3>
+          <p>Se a sua resposta for <strong>“sim”</strong>, você está no lugar certo.</p>
+          <p><strong>O que você encontrará aqui:</strong><br>
+            • Código limpo e leve com suporte a 7 idiomas.<br>
+            • Ferramenta de upload direto para o ImgBB — sem necessidade de servidor.<br>
+            • Interface multilíngue respeitosa com cada cultura.<br>
+            • Documentação completa passo a passo.
+          </p>
+          <h3>Como começar?</h3>
+          <ol>
+            <li>Abra o <code>index.html</code> neste repositório.</li>
+            <li>Siga os comentários no código — cada linha está claramente explicada.</li>
+            <li>Substitua <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> pela sua chave do <a href="https://api.imgbb.com" target="_blank">ImgBB</a>.</li>
+            <li>Teste localmente com apps como o <strong>Acode</strong>.</li>
+            <li>Compartilhe, modifique e construa sobre ele — o conhecimento cresce quando é compartilhado.</li>
+          </ol>
+          <p><strong>Licença MIT</strong>: Use, adapte ou integre este código — apenas <em>dê os devidos créditos</em>.</p>
+          <h3>Entre em contato</h3>
+          <p>Se precisar de ajuda, estou aqui — não como um especialista, mas como um colega na jornada do aprendizado.<br>
+            <strong>E-mail</strong>: <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong>: <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">“Programar não é uma corrida…<br>mas um diálogo entre quem constrói, quem observa e quem continua a jornada.”</p>
+          <p>Compartilhe, aprenda e construa com amor — o mundo precisa de pessoas como você.</p>
+        `
+      },
+      fr: {
+        pageTitle: "Comment cette page a été créée",
+        content: `
+          <h2>Ce projet a été conçu avec amour pour ceux qui aiment apprendre</h2>
+          <p><strong>« La grande technologie ne se construit pas seulement avec du code…<br>mais avec des cœurs qui ouvrent la porte aux autres. »</strong></p>
+          <p>Ce site web est un cadeau open source de :<br>
+            <strong>Learn_2025_2026</strong> — un apprenant qui croit que la programmation est un pont entre les cultures.<br>
+            <strong>Qwen</strong> — la reine de l’IA qui a transformé des idées en lumière numérique.
+          </p>
+          <h3>Vous souhaitez créer quelque chose de similaire ?</h3>
+          <p>Si votre réponse est <strong>« oui »</strong>, vous êtes au bon endroit.</p>
+          <p><strong>Ce que vous trouverez ici :</strong><br>
+            • Un code propre et léger prenant en charge 7 langues.<br>
+            • Un outil d’envoi direct vers ImgBB — sans serveur.<br>
+            • Une interface multilingue respectueuse de chaque culture.<br>
+            • Une documentation complète, étape par étape.
+          </p>
+          <h3>Comment commencer ?</h3>
+          <ol>
+            <li>Ouvrez le fichier <code>index.html</code> dans ce dépôt.</li>
+            <li>Suivez les commentaires dans le code — chaque ligne est clairement expliquée.</li>
+            <li>Remplacez <code>"PUT_YOUR_IMGBB_API_KEY_HERE"</code> par votre clé obtenue sur <a href="https://api.imgbb.com" target="_blank">ImgBB</a>.</li>
+            <li>Testez localement avec des applications comme <strong>Acode</strong>.</li>
+            <li>Partagez, modifiez et construisez dessus — car le savoir grandit lorsqu’il est partagé.</li>
+          </ol>
+          <p><strong>Licence MIT</strong> : Utilisez, adaptez ou intégrez ce code — il suffit de <em>mentionner la source</em>.</p>
+          <h3>Me contacter</h3>
+          <p>Si vous avez besoin d’aide, je suis là — non pas en tant qu’expert, mais en tant que compagnon d’apprentissage.<br>
+            <strong>Email</strong> : <a href="mailto:Learn_2025_2026@proton.me">Learn_2025_2026@proton.me</a><br>
+            <strong>GitHub</strong> : <a href="https://github.com/learn2026" target="_blank">learn2026</a>
+          </p>
+          <p class="quote">« Coder n’est pas une course…<br>c’est un dialogue entre celui qui construit, celui qui observe, et celui qui poursuit le voyage. »</p>
+          <p>Partagez, apprenez et créez avec amour — le monde a besoin de personnes comme vous.</p>
+        `
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang] || translations.en;
+      document.getElementById('pageTitle').textContent = t.pageTitle;
+      document.getElementById('content').innerHTML = t.content;
+      localStorage.setItem('learnLang', lang);
+    }
+
+    // تحميل اللغة المحفوظة
+    const saved = localStorage.getItem('learnLang') || 'en';
+    setLang(saved);
+  </script>
+</body>
+</html>
