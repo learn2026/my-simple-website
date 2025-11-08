@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Website - Enhanced Performance</title>
+    
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <style>
+        /* التحسين: إضافة CSS المطلوبة للمسافات هنا بدلاً من تكرار <br> */
+        .content-spacer {
+            height: 200px; /* يمكن تعديل القيمة حسب الرغبة */
+        }
+        /* إضافة بعض التنسيقات الأولية للنموذج لجعله يبدو أفضل */
+        #contact-form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #contact-form-container input[type="email"], 
+        #contact-form-container textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #contact-form-container button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff; /* مثال على لون */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="main-content">
+        
+        <h1>Welcome to our new project!</h1>
+        <p>We successfully built the first page.</p>
+        
+        <h2>Immediate Image Loading</h2>
+        <img src="https://picsum.photos/600/300" alt="Regular image" width="600" height="300">
+        
+        <div class="content-spacer"></div>
+        
+        <h2>Lazy Loaded Image (Scroll to see)</h2>
+        <img src="https://picsum.photos/600/400" alt="Lazy-loaded image" loading="lazy" width="600" height="400">
+        
+        <div style="height: 50px;"></div> <h2>🌐 Share Our Website!</h2>
+        
+        <div style="height: 50px;"></div> <h2>📧 Contact Us</h2>
+        
+        <div id="contact-form-container">
+            <form action="https://formspree.io/f/xrbrzkap" method="POST"> 
+                
+                <label>
+                    Your email:
+                    <input type="email" name="_replyto" required> 
+                </label>
+                
+                <label>
+                    Your message:
+                    <textarea name="message" required></textarea>
+                </label>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <button onclick="topFunction()" id="myBtn" title="Back to Top">⬆️</button>
+    </div>
+    
+    <script>
+        // دالة العودة للأعلى (يمكن وضعها في script.js)
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
