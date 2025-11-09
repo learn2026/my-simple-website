@@ -1,0 +1,13 @@
+{
+  "welcome_message": "بەخێربێن بۆ وێبسایتی سادەی من!",
+  "about_us": "دەربارەی ئێمە",
+  "contact": "پەیوەندی",
+  "home": "ماڵەوە",
+  "pricing": "نرخەکان",
+  "playground": "تاقیکردنەوەی کۆد",
+  "page_title_about": "دەربارەی ئێمە",
+  "page_title_contact": "پەیوەندیمان پێوە بکە",
+  "page_title_pricing": "نرخەکان",
+  "page_title_playground": "تاقیکردنەوەی کۆد",
+  "about_content": "ئەمە ماڵپەڕێکی سادە و پیشەییە، بە سیستەمێکی i18n ی بەهێز دروستکراوە."
+}
