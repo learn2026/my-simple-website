@@ -1,0 +1,13 @@
+{
+  "welcome_message": "Добре дошли в моя прост уебсайт!",
+  "about_us": "За нас",
+  "contact": "Контакти",
+  "home": "Начало",
+  "pricing": "Цени",
+  "playground": "Код Площадка",
+  "page_title_about": "За нас",
+  "page_title_contact": "Контакти",
+  "page_title_pricing": "Цени",
+  "page_title_playground": "Код Площадка",
+  "about_content": "Това е прост, професионален уебсайт, изграден със стабилна i18n система."
+}
