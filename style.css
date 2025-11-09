@@ -1,0 +1,124 @@
+/* =======================================
+[1] القواعد الأساسية والافتراضية (LTR)
+======================================= */
+
+:root {
+    /* تعريف متغيرات الألوان لسهولة التعديل لاحقًا */
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-light: #f8f9fa;
+    --text-dark: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =======================================
+[2] تنسيق الرأس والقائمة المنسدلة
+======================================= */
+
+header {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end; /* وضع القائمة المنسدلة في أقصى اليمين (افتراض LTR) */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#language-switcher {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* =======================================
+[3] تنسيق المحتوى الرئيسي
+======================================= */
+
+main {
+    flex-grow: 1; /* للسماح للمحتوى بالنمو وملء الفراغ */
+    padding: 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2.8em;
+}
+
+/* تنسيق قائمة التنقل */
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px; /* جعل الأزرار دائرية الحواف */
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* =======================================
+[4] تنسيق التذييل
+======================================= */
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* =======================================
+[5] دعم الاتجاه من اليمين لليسار (RTL Support)
+=======================================
+هذه القواعد تطبق فقط عندما يحدد كود JavaScript اتجاه الصفحة كـ RTL (مثل العربية والفارسية)
+*/
+
+/* تحديث اتجاه النص والمحاذاة العامة للجسم */
+[dir="rtl"] {
+    text-align: right;
+}
+
+/* عكس اتجاه قائمة التنقل في الرأس */
+[dir="rtl"] header {
+    /* عكس justify-content: من flex-end (أقصى اليمين) إلى flex-start (أقصى اليسار) */
+    justify-content: flex-start; 
+}
+
+/* عكس اتجاه القوائم و الأيقونات إذا لزم الأمر */
+[dir="rtl"] ul, [dir="rtl"] ol {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
