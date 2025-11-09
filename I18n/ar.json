@@ -1,0 +1,13 @@
+{
+  "welcome_message": " السلام أهلاً بك في موقعي البسيط!",
+  "about_us": "عنّا",
+  "contact": "اتصل بنا",
+  "home": "الرئيسية",
+  "pricing": "الأسعار",
+  "playground": "تجربة الكود",
+  "page_title_about": "نبذة عنا",
+  "page_title_contact": "اتصل بنا",
+  "page_title_pricing": "أسعار إنشاء المواقع",
+  "page_title_playground": "منصة تجربة الكود",
+  "about_content": "هذا موقع إلكتروني بسيط واحترافي، تم بناؤه باستخدام نظام تدويل قوي (i18n)."
+}
