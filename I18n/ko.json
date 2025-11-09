@@ -1,0 +1,13 @@
+{
+  "welcome_message": "저의 간단한 웹사이트에 오신 것을 환영합니다!",
+  "about_us": "회사 소개",
+  "contact": "연락처",
+  "home": "홈",
+  "pricing": "가격",
+  "playground": "코드 연습장",
+  "page_title_about": "회사 소개",
+  "page_title_contact": "연락처",
+  "page_title_pricing": "가격",
+  "page_title_playground": "코드 연습장",
+  "about_content": "이것은 강력한 i18n 시스템으로 구축된 간단하고 전문적인 웹사이트입니다."
+}
