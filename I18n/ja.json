@@ -1,0 +1,13 @@
+{
+  "welcome_message": "私のシンプルなウェブサイトへようこそ！",
+  "about_us": "会社概要",
+  "contact": "お問い合わせ",
+  "home": "ホーム",
+  "pricing": "料金",
+  "playground": "コード演習場",
+  "page_title_about": "会社概要",
+  "page_title_contact": "お問い合わせ",
+  "page_title_pricing": "料金",
+  "page_title_playground": "コード演習場",
+  "about_content": "これは、堅牢な i18n システムで構築されたシンプルでプロフェッショナルなウェブサイトです。"
+}
