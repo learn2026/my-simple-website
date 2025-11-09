@@ -1,0 +1,13 @@
+{
+  "welcome_message": "Basit web siteme hoş geldiniz!",
+  "about_us": "Hakkımızda",
+  "contact": "İletişim",
+  "home": "Anasayfa",
+  "pricing": "Fiyatlandırma",
+  "playground": "Kod Alanı",
+  "page_title_about": "Hakkımızda",
+  "page_title_contact": "İletişim",
+  "page_title_pricing": "Fiyatlandırma",
+  "page_title_playground": "Kod Alanı",
+  "about_content": "Bu, sağlam bir i18n sistemi ile oluşturulmuş basit ve profesyonel bir web sitesidir."
+}
