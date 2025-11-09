@@ -1,0 +1,13 @@
+{
+  "welcome_message": "سلام! به وبسایت ساده من خوش آمدید!",
+  "about_us": "درباره ما",
+  "contact": "تماس با ما",
+  "home": "خانه",
+  "pricing": "قیمت‌ها",
+  "playground": "تست کد",
+  "page_title_about": "درباره ما",
+  "page_title_contact": "تماس با ما",
+  "page_title_pricing": "قیمت‌ها",
+  "page_title_playground": "تست کد",
+  "about_content": "این یک وبسایت ساده و حرفه‌ای است که با یک سیستم i18n قوی ساخته شده است."
+}
