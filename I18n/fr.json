@@ -1,0 +1,13 @@
+{
+  "welcome_message": "Bienvenue sur mon site simple !",
+  "about_us": "À propos de nous",
+  "contact": "Contactez-nous",
+  "home": "Accueil",
+  "pricing": "Tarification",
+  "playground": "Espace Code",
+  "page_title_about": "À propos de nous",
+  "page_title_contact": "Contactez-nous",
+  "page_title_pricing": "Tarification",
+  "page_title_playground": "Espace Code",
+  "about_content": "Ceci est un site web simple et professionnel, construit avec un système i18n robuste."
+}
