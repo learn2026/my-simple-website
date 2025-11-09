@@ -1,0 +1,13 @@
+{
+  "welcome_message": "¡Bienvenido a mi sitio web simple!",
+  "about_us": "Acerca de nosotros",
+  "contact": "Contacto",
+  "home": "Inicio",
+  "pricing": "Precios",
+  "playground": "Zona de Código",
+  "page_title_about": "Acerca de nosotros",
+  "page_title_contact": "Contacto",
+  "page_title_pricing": "Precios",
+  "page_title_playground": "Zona de Código",
+  "about_content": "Este es un sitio web simple y profesional, construido con un sistema i18n robusto."
+}
