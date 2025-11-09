@@ -1,0 +1,13 @@
+{
+  "welcome_message": "Bem-vindo ao meu site simples!",
+  "about_us": "Sobre nós",
+  "contact": "Contato",
+  "home": "Início",
+  "pricing": "Preços",
+  "playground": "Laboratório de Código",
+  "page_title_about": "Sobre nós",
+  "page_title_contact": "Contato",
+  "page_title_pricing": "Preços",
+  "page_title_playground": "Laboratório de Código",
+  "about_content": "Este é um site simples e profissional, construído com um robusto sistema i18n."
+}
