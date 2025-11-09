@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title_about">About Us</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <select id="language-switcher">
+            </select>
+    </header>
+
+    <main>
+        <h1 data-i18n="page_title_about">About Us</h1>
+
+        <p data-i18n="about_content">This is a simple, professional website built with a robust i18n system.</p>
+
+        <nav>
+            <a href="index.html" data-i18n="home">Home</a> 
+            <a href="contact.html" data-i18n="contact">Contact</a>
+            <a href="pricing.html" data-i18n="pricing">Pricing</a>
+            <a href="code-playground.html" data-i18n="playground">Code Playground</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Learn2026 Simple Site</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
